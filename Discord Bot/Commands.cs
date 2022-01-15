@@ -44,7 +44,7 @@
             EmbedBuilder embed = new();
             //Embed title!
             embed.WithTitle(Result["title"].ToString());
-            embed.WithImage(Result["url"].ToString());
+            embed.WithImageUrl(Result["url"].ToString());
             embed.AddField("Dottik Note: ", "This Meme Is From r/memes", false);
 
             await command.RespondAsync(embed: embed.Build());
