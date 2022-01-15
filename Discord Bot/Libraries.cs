@@ -10,3 +10,9 @@ global using System.Collections.Generic;
 global using Discord;
 global using Discord.Rest;
 global using Discord.WebSocket;
+global using Discord.Net;
+global using Newtonsoft.Json;
+
+//Own 
+global using Rocket.Main;
+global using Rocket.Commands;
