@@ -62,6 +62,11 @@
 			SlashCommandBuilder globalCm = new();
 			globalCm.WithName("ping");
 			globalCm.WithDescription("receive Pong! and the bot's latency!");
+			
+			SlashCommandBuilder globalCm = new();
+			globalCm.WithName("meme");
+			globalCm.WithDescription("receive a freshly home baked meme!");
+
 
             try 
 			{
@@ -112,14 +117,20 @@
 		private async Task SlashCommandHandler(SocketSlashCommand command)
 		{
 			//Read the command name and act upon it!
-			if (command.Data.Name == "ping")
+			
+			switch(command.Data.Name)
 			{
-				await MainCommands.PingBot(command);
+				case "ping":
+					await MainCommands.PingBot(command);
+					break;
+				case "hello":
+					await MainCommands.SayHello(command);
+					break;
+				case "meme"
+					
+					break;
 			}
-			else if (command.Data.Name == "hello")
-			{
-				await MainCommands.SayHello(command);
-			}
+
 		}
 	}
 }
