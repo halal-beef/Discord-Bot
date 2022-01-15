@@ -27,5 +27,27 @@
 
             await command.RespondAsync(embed: embed.Build());
         }
+        
+        public static async Task Meme(SocketSlashCommand command)
+        {
+              var Result = JObject.Parse(
+                JArray.Parse(
+
+                    new HttpClient()
+
+                    .GetStringAsync("https://reddit.com/r/memes/random.json?limit=1").GetAwaiter().GetResult()
+
+                    )[0]["data"]["children"][0]["data"]
+                    .ToString()
+                
+                );
+            EmbedBuilder embed = new();
+            //Embed title!
+            embed.WithTitle(Result["title"].ToString());
+            embed.WithImage(Result["url"].ToString());
+            embed.AddField("Dottik Note: ", "This Meme Is From r/memes", false);
+
+            await command.RespondAsync(embed: embed.Build());
+        }
     }
 }
