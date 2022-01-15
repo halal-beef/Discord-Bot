@@ -1,11 +1,18 @@
-﻿namespace Rocket.Main
+﻿namespace Dottik.Bot
 {
 	public class Program
 	{
+		/// <summary>
+		/// The bot token MUST REMAIN SECRET!
+		/// </summary>
 		private static string Token = ""; //DISCORD BOT TOKEN HERE.
-
+		/// <summary>
+		/// The Socket of the Client
+		/// </summary>
 		public static DiscordSocketClient client;
-		
+		/// <summary>
+		/// The server Guild ID
+		/// </summary>
 		public static ulong ServerGID = ulong.MinValue; //SERVER GUILD ID HERE.
 
 		public static Task Main(string[] args) => new Program().MainAsync();
@@ -39,6 +46,10 @@
 			// Block this task until the program is closed.
 			await Task.Delay(-1);
 		}
+		/// <summary>
+		/// Add Slash-Commands. Shouldn't be run on every boot, but lazy to fix this.
+		/// </summary>
+		/// <returns></returns>
 		private async Task AddCommands()
         {
 			var guild = client.GetGuild(ServerGID);
@@ -71,21 +82,33 @@
         {
             throw new NotImplementedException();
         }
-
+		/// <summary>
+		/// Some fancy logging to the console to see that the bot is connecting!
+		/// </summary>
+		/// <param name="msg">LogMessage, handled by event.</param>
+		/// <returns>Nothing :D</returns>
         private Task Log(LogMessage msg)
 		{
 			Console.WriteLine(msg.ToString());
 			return Task.CompletedTask;
 		}
-		private async Task CloseConnections()
+		/// <summary>
+		/// Closes the bot connections correctly!
+		/// </summary>
+		private static void CloseConnections()
         {
 			Console.ReadKey();
 			Console.WriteLine("Stopping Client...");
-			await client.LogoutAsync();
-			await client.StopAsync();
+			client.LogoutAsync().GetAwaiter().GetResult();
+			client.StopAsync().GetAwaiter().GetResult();
 			Console.WriteLine("Client Stopped.");
 			Environment.Exit(0);
         }
+		/// <summary>
+		/// Called when the client detects a slash command!
+		/// </summary>
+		/// <param name="command">Command context.</param>
+		/// <returns>Nothing :D</returns>
 		private async Task SlashCommandHandler(SocketSlashCommand command)
 		{
 			//Read the command name and act upon it!

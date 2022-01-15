@@ -14,5 +14,5 @@ global using Discord.Net;
 global using Newtonsoft.Json;
 
 //Own 
-global using Rocket.Main;
-global using Rocket.Commands;
+global using Dottik.Bot;
+global using Dottik.Bot.Commands;

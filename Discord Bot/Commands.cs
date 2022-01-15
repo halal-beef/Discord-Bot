@@ -1,4 +1,4 @@
-﻿namespace Rocket.Commands
+﻿namespace Dottik.Bot.Commands
 {
     internal class MainCommands
     {
@@ -23,6 +23,7 @@
             EmbedBuilder embed = new();
             //Embed title!
             embed.WithTitle("Hello!");
+            embed.AddField("Dottik Note: ", "How is it going man!", false);
 
             await command.RespondAsync(embed: embed.Build());
         }
