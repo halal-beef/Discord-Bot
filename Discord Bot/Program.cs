@@ -1,0 +1,10 @@
+﻿namespace Rocket.Main
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+}
