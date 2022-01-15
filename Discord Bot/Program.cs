@@ -2,8 +2,8 @@
 {
 	public class Program
 	{
-		private static string Token = ""; //DISCORD BOT TOKEN HERE.
-		public static DiscordSocketClient _client;
+		private static string Token = "OTMxNzIxMTMxMDM4MjM2NzAz.YeIi7A.Mr8eXEXtDK-I0h-vrs5cry2CzUQ"; //DISCORD BOT TOKEN HERE.
+		public static DiscordSocketClient _client = new();
 
 		public static Task Main(string[] args) => new Program().MainAsync();
 
