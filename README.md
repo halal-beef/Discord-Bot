@@ -3,7 +3,8 @@
 A very bad Discord Bot made with [Discord.Net](https://github.com/discord-net/Discord.Net) a Unofficial Discord C# Bot API Wrapper!
 
 
---------------
+#NOTE: 
+  - I know that some guy may want the token, regenerated already :)
 
 ## **Credits**
 
