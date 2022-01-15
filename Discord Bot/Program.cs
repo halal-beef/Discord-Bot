@@ -127,7 +127,7 @@
 					await MainCommands.SayHello(command);
 					break;
 				case "meme"
-					
+				        await MainCommands.Meme(command);
 					break;
 			}
 
